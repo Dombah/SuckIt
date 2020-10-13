@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[DisallowMultipleComponent]
 public class Spawner : MonoBehaviour
 {
     [SerializeField] Trash trash;
@@ -24,7 +26,7 @@ public class Spawner : MonoBehaviour
 
     IEnumerator SpawnTrash()
     {
-        while(isAlive) // Spawns trash while 
+        while(isAlive) // Spawns trash while the player is alive
         {
             Vector3 spawnPos = GetSpawnPosition();
             Trash spawnedTrash = Instantiate(trash, spawnPos, Quaternion.identity);

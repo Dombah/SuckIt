@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[DisallowMultipleComponent]
 public class Trash : MonoBehaviour
 {
     [Tooltip("0 for no speed, 1 for max speed")][SerializeField] float movingSpeedPercentage = 1f;

@@ -44,4 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trash: {fileID: 3512301271530946285, guid: 037f4b47f5ec0b0499dc0a8951c7e796, type: 3}
-  trashTransform: {fileID: 5048155815460924012, guid: 037f4b47f5ec0b0499dc0a8951c7e796, type: 3}
+  z_Spawn_Offset: 0
+  time_Until_Next_Spawn: 0.5
+  spawn_Radius: 15
