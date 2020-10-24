@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 561ec33e89f259042a255dda9172e29b
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - California Signature Duo
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 8569aa0eb66eb03449cbb1fd8fe1db19, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

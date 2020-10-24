@@ -1,23 +1,65 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Scoreboard : MonoBehaviour
-{
+{ 
+    // Text variables
+    Text[] texts;              // List of texts in the Scoreboard prefab
+    Text scorePoints;          
+    Text healthPoints;         
+
+    // Scoreboard dependand variables
+    [SerializeField] int health_Points = 100;
+    [SerializeField] int score_Points = 0;
+
+    // Vacumm and DestroyCollided dependand variables
+    [SerializeField] int score_Multiplier = 50;
+    [SerializeField] int loseHealth_Multiplier = 10;
+
+    
+    public bool isAlive = true;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        texts = GetComponentsInChildren<Text>();
+
+        scorePoints = texts[0];
+        healthPoints = texts[1];
+
+        scorePoints.text = score_Points.ToString();
+        healthPoints.text = health_Points.ToString();
+    }
+   
+    public int GetHealthPoints()
+    {
+        return health_Points;
+    }
+    public int GetScoreMultiplier()
+    {
+        return score_Multiplier;
+    }
+    public int GetLoseHealthMultiplier()
+    {
+        return loseHealth_Multiplier;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddScore(int score)  
     {
-        
+        score_Points += score;
+        scorePoints.text = score_Points.ToString();      
+    }
+    public void LoseHealth(int health)  
+    {
+        health_Points -= health;
+        healthPoints.text = health_Points.ToString();
     }
 
-    public void AddScore(int score) // todo make into a working function. At this moment just a placeholder
+    public void Die()
     {
-        //print("Added " + score + "points"); // just for testing , todo remove later 
+        //isAlive = false;
+        //print("Malter penis");
     }
 }
