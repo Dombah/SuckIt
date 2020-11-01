@@ -8,16 +8,19 @@ public class SinanSakic : MonoBehaviour
 
    [SerializeField] AudioClip trezan;
    [SerializeField] AudioSource audioSource;
+   [SerializeField] int sinanBuildIndex = 1;
+   [SerializeField] float timeToLoadScene = 2f;
 
-    private void Trezan()
+    public void Trezan()
     {
         audioSource.PlayOneShot(trezan);
-        Invoke("LoadScene", 2f);
+        Invoke("LoadScene", timeToLoadScene);
     }
     
     private void LoadScene()
     {
         DontDestroyOnLoad(audioSource);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(sinanBuildIndex);
     }  
 }
+

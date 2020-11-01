@@ -7,7 +7,6 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] Trash trashPrefab;
-    Trash spawnedTrash;
     [SerializeField] float z_Spawn_Offset;
     [SerializeField] float spawn_Radius = 15f;
 
@@ -46,7 +45,7 @@ public class Spawner : MonoBehaviour
         while(scoreboard.isAlive) // Spawns trash while the player is alive
         {
             Vector3 spawnPos = GetSpawnPosition();
-            spawnedTrash = Instantiate(trashPrefab, spawnPos, Quaternion.identity);
+            Instantiate(trashPrefab, spawnPos, Quaternion.identity);
             yield return new WaitForSeconds(time_Until_Next_Spawn); // wait for time_Until_Next_Spawn and start over again
         }
     }

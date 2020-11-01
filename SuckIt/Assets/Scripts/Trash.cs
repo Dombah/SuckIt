@@ -12,14 +12,18 @@ public class Trash : MonoBehaviour
     [SerializeField] float timeAtNextSpawn = 15f; //   TODO
     [SerializeField] float timeIncrement = 15f;         //  Make Spawner.cs be the script this is in
     Scoreboard scoreboard;
+
     void Start()
     {
-        scoreboard = FindObjectOfType<Scoreboard>(); // TODO: Make event system and replace all scoreboard instances in every script with events
+        scoreboard = FindObjectOfType<Scoreboard>();
+
         movingDir = new Vector3(transform.position.x, 0f, 0f);
     }
+
+
     void Update()
     {
-        if (!scoreboard.isAlive) { return; }
+        if(!scoreboard.isAlive) { return; }
         ProcessTrashMovement();
     }
 

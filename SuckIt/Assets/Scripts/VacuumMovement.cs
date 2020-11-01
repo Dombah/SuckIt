@@ -13,11 +13,15 @@ public class VacuumMovement : MonoBehaviour
     Vector3 startingPos;
     Scoreboard scoreboard;
 
-    private void Start()
+    private void Awake()
     {
         scoreboard = FindObjectOfType<Scoreboard>();
+    }
+    private void Start()
+    {
         startingPos = transform.position; // Stores the position of the GameObject when the game starts
     }
+
 
     public void Move(float movementFactor, Vector3 movementDirection) // Called in mouse input
     {
@@ -50,4 +54,5 @@ public class VacuumMovement : MonoBehaviour
         float movementFactorClamped = Mathf.Clamp(movementFactorRaw, Mathf.Epsilon, vacuumSpeed);
         return movementFactorClamped;
     }
+
 }
