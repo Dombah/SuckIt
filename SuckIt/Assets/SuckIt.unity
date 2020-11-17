@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &36696845 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8064746493072657256, guid: e0d4f89219119d941b7e987cccda12c5, type: 3}
+  m_PrefabInstance: {fileID: 273683259189189534}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad611d83b388814eb2a7fa295ef1c4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &153985791 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3303933068373359381, guid: d3070fb939b3b294ba7f379b6db0e632, type: 3}
@@ -180,6 +191,49 @@ MonoBehaviour:
   y_Restriction: 20
   x_Restriction: 20
   vacuumSpeed: 0.5
+--- !u!1 &387618570
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 387618572}
+  - component: {fileID: 387618571}
+  m_Layer: 0
+  m_Name: Core
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &387618571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387618570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c5d9bcbb52e7294a97cde4f21460833, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &387618572
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387618570}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 411.97382, y: -1.1068878, z: 453.86667}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!223 &566227715 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 3303933068373359383, guid: d3070fb939b3b294ba7f379b6db0e632, type: 3}
@@ -547,44 +601,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &1280772660 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1280772660, guid: d3070fb939b3b294ba7f379b6db0e632, type: 3}
-  m_PrefabInstance: {fileID: 3303933068525623786}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1280772662
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1280772660}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 50963acc2cb96d14e8b93cc14a7ae910, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1280772665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1280772660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a597c3e532b48b241b694a822881d201, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreboard: {fileID: 153985791}
-  animator: {fileID: 1280772662}
 --- !u!1001 &1700171873
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -915,30 +931,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1150710073, guid: d3070fb939b3b294ba7f379b6db0e632, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1280772660, guid: d3070fb939b3b294ba7f379b6db0e632, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1280772661, guid: d3070fb939b3b294ba7f379b6db0e632, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.000012159
-      objectReference: {fileID: 0}
-    - target: {fileID: 1280772661, guid: d3070fb939b3b294ba7f379b6db0e632, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -621
-      objectReference: {fileID: 0}
-    - target: {fileID: 1280772661, guid: d3070fb939b3b294ba7f379b6db0e632, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 900
-      objectReference: {fileID: 0}
-    - target: {fileID: 1280772661, guid: d3070fb939b3b294ba7f379b6db0e632, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 565
-      objectReference: {fileID: 0}
+    - target: {fileID: 961519742, guid: d3070fb939b3b294ba7f379b6db0e632, type: 3}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 36696845}
     - target: {fileID: 3303933068373359376, guid: d3070fb939b3b294ba7f379b6db0e632, type: 3}
       propertyPath: m_Name
       value: Scoreboard

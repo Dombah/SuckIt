@@ -10,10 +10,10 @@ public class DestroyCollided : MonoBehaviour
         if (other.tag == "Killable")
         {
             Destroy(other.gameObject);
-            if(scoreboard.isAlive && scoreboard.GetHealthPoints() != 0)
+            if(scoreboard.isAlive && scoreboard.health_Points != 0)
             {
                 scoreboard.LoseHealth(scoreboard.GetLoseHealthMultiplier());
-                if(scoreboard.GetHealthPoints() == 0)
+                if(scoreboard.health_Points == 0)
                 {
                     scoreboard.Die();
                 }

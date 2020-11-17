@@ -12,7 +12,7 @@ public class Scoreboard : MonoBehaviour
     Text healthPoints;         
 
     // Scoreboard dependand variables
-    [SerializeField] private int health_Points = 100;
+    [SerializeField] public int health_Points = 100;
     [SerializeField] private int score_Points = 0;
 
     // Vacumm and DestroyCollided dependand variables
@@ -35,10 +35,6 @@ public class Scoreboard : MonoBehaviour
         healthPoints.text = health_Points.ToString();
     }
 
-    public int GetHealthPoints()
-    {
-        return health_Points;
-    }
     public int GetScoreMultiplier()
     {
         return score_Multiplier;

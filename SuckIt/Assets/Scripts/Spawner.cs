@@ -25,8 +25,7 @@ public class Spawner : MonoBehaviour
     }
     void Start()
     {
-        StartCoroutine(SpawnTrash()); // Begins the spawning of trash
-        
+            StartCoroutine(SpawnTrash()); // Begins the spawning of trash 
     }
 
     void Update()
@@ -40,7 +39,7 @@ public class Spawner : MonoBehaviour
       if(Time.time >= time_At_Spawner_Speed_Up) { time_Until_Next_Spawn -= 0.08f; time_At_Spawner_Speed_Up += time_Increment; }
    }
 
-    IEnumerator SpawnTrash()
+    public IEnumerator SpawnTrash()
     {
         while(scoreboard.isAlive) // Spawns trash while the player is alive
         {
