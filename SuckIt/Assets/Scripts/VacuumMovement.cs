@@ -2,30 +2,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Game.Core;
 public class VacuumMovement : MonoBehaviour
 {
+    #region Variables
+    [SerializeField] Core core = null;
 
     [SerializeField] float y_Restriction = 20f;
     [SerializeField] float x_Restriction = 20f;
     public float vacuumSpeed = 1f;
 
     Vector3 startingPos;
-    Scoreboard scoreboard;
+    #endregion
 
-    private void Awake()
-    {
-        scoreboard = FindObjectOfType<Scoreboard>();
-    }
     private void Start()
     {
         startingPos = transform.position; // Stores the position of the GameObject when the game starts
     }
 
-
     public void Move(float movementFactor, Vector3 movementDirection) // Called in mouse input
     {
-        if(!scoreboard.isAlive) { return; }
+        if(!core.isAlive) { return; }
         ProcessHorizontalMovement(movementFactor, movementDirection);
         ProcessVerticalMovement(movementFactor, movementDirection);
     }
@@ -54,5 +51,4 @@ public class VacuumMovement : MonoBehaviour
         float movementFactorClamped = Mathf.Clamp(movementFactorRaw, Mathf.Epsilon, vacuumSpeed);
         return movementFactorClamped;
     }
-
 }

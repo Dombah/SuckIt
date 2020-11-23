@@ -3,58 +3,21 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Game.Core;
 
 public class Scoreboard : MonoBehaviour
-{ 
-    // Text variables
-    Text[] texts;              // List of texts in the Scoreboard prefab
-    Text scorePoints;          
-    Text healthPoints;         
+{
+    #region Variables
+    [SerializeField ]Text scorePoints = null;
+    [SerializeField] Text healthPoints = null;
 
-    // Scoreboard dependand variables
-    [SerializeField] public int health_Points = 100;
-    [SerializeField] private int score_Points = 0;
+    [SerializeField] Core core = null;
+    #endregion
 
-    // Vacumm and DestroyCollided dependand variables
-    [SerializeField] int score_Multiplier = 50;
-    [SerializeField] int loseHealth_Multiplier = 10;
-
-    public bool isAlive = true;
-
-    // Start is called before the first frame update
-    private void Awake()
+    private void Update()
     {
-        texts = GetComponentsInChildren<Text>();
+        scorePoints.text = core.score_Points.ToString();
+        healthPoints.text = core.health_Points.ToString();
     }
-    private void Start()
-    {
-        scorePoints = texts[0];
-        healthPoints = texts[1];
-
-        scorePoints.text = score_Points.ToString();
-        healthPoints.text = health_Points.ToString();
-    }
-
-    public int GetScoreMultiplier()
-    {
-        return score_Multiplier;
-    }
-    public int GetLoseHealthMultiplier()
-    {
-        return loseHealth_Multiplier;
-    }
-
-    public void AddScore(int score)  
-    {
-        score_Points += score;
-        scorePoints.text = score_Points.ToString();      
-    }
-    public void LoseHealth(int health)  
-    {
-        health_Points -= health;
-        healthPoints.text = health_Points.ToString();
-    }
-
-    public void Die() { isAlive = false; }
-
 }
+

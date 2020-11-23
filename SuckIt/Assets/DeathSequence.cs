@@ -1,22 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Core;
+using System;
 
 public class DeathSequence : MonoBehaviour
 {
-    [SerializeField] Animator deathSequenceAnimation;
-    [SerializeField] GameObject[] imagesToSet;
-    [SerializeField] Spawner spawner;
+    #region Variables
+    [SerializeField] Animator deathSequenceAnimation = null;
+    [SerializeField] GameObject[] imagesToSet = null;
+    [SerializeField] Spawner spawner = null;
+    [SerializeField] Core core = null;
+    #endregion
 
-    Scoreboard scoreboard;
-    private void Awake()
-    {
-        scoreboard = GetComponent<Scoreboard>();
-    }
     void Update()
     {
+        if(Debug.isDebugBuild) { ProcessDebugKeys(); } // Not active in final release
         if(!CheckAnimatorValidity()) { return; }
         ProcessDeathSequence();
+    }
+
+    private void ProcessDebugKeys()
+    {
+        if(Input.GetKeyDown(KeyCode.D))
+        {
+            core.isInDebug = !core.isInDebug;
+        }
     }
 
     bool CheckAnimatorValidity()
@@ -35,7 +44,7 @@ public class DeathSequence : MonoBehaviour
     }
     private void ProcessDeathSequence()
     {
-        if (!scoreboard.isAlive)
+        if (!core.isAlive)
         {
             SetImageVisibility(true);
             deathSequenceAnimation.SetBool("isAlive", false);          
@@ -44,7 +53,7 @@ public class DeathSequence : MonoBehaviour
 
     public void SetImageVisibility(bool state)
     {
-        foreach (GameObject objects in imagesToSet)
+        foreach (GameObject objects in imagesToSet) // Find each object in the array and set state
         {
             objects.SetActive(state);
         }
@@ -52,12 +61,11 @@ public class DeathSequence : MonoBehaviour
 
     public void RevertDeathSequence()
     {
-        deathSequenceAnimation.SetTrigger("RevertDeathSequence");
-        scoreboard.isAlive = true;
-        deathSequenceAnimation.SetBool("isAlive", true);
-        scoreboard.health_Points = 100;
-        StartCoroutine(SetFalseAfterTime(1f));
-        StartCoroutine(spawner.SpawnTrash());
+        deathSequenceAnimation.SetTrigger("RevertDeathSequence"); // Trigger animation 
+        core.isAlive = true;                           
+        deathSequenceAnimation.SetBool("isAlive", true);          // Set animator isAlive variable 
+        core.health_Points = 100;                                   
+        StartCoroutine(SetFalseAfterTime(deathSequenceAnimation.GetCurrentAnimatorClipInfo(0).Length));  // Disable Image when the animation stops playing      
     }
 
     IEnumerator SetFalseAfterTime(float timeInSec)

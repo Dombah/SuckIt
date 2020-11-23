@@ -1,22 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Game.Core;
 public class DestroyCollided : MonoBehaviour
 {
-    [SerializeField] Scoreboard scoreboard;
+    [SerializeField] Core core = null;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Killable")
         {
             Destroy(other.gameObject);
-            if(scoreboard.isAlive && scoreboard.health_Points != 0)
+            if(core.isAlive && core.health_Points != 0)
             {
-                scoreboard.LoseHealth(scoreboard.GetLoseHealthMultiplier());
-                if(scoreboard.health_Points == 0)
+                core.LoseHealth(core.GetLoseHealthMultiplier());
+                if(core.health_Points == 0 && !core.isInDebug)
                 {
-                    scoreboard.Die();
+                    core.Die();
                 }
+            }
+            else if(core.health_Points == 0)
+            {
+                core.Die();
             }
         }
     }

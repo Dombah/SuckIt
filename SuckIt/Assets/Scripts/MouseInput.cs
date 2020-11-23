@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseInput : MonoBehaviour
 {
-    [SerializeField] GameObject joystick = null;
+    #region Variables
     [SerializeField] Canvas background = null;
     [SerializeField] VacuumMovement vacuumMovement = null;
     
@@ -13,6 +13,7 @@ public class MouseInput : MonoBehaviour
     // Values for either X = 0 or Y = 0
     //private float movementFactorRaw = 0f;
     private float movementFactorClamped = 0f;
+    #endregion
 
     void Update()
     {
@@ -80,14 +81,3 @@ public class MouseInput : MonoBehaviour
     }
     
 }
-/*if (instantiatedJoysticks == 0)
-            {
-                Vector3 pos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z);
-                print(pos);
-                joystickInstantiated = Instantiate(joystick, pos, Quaternion.identity);
-                joystickInstantiated.transform.parent = background.transform;
-                instantiatedJoysticks++;
-            }          */
-
-/* Destroy(joystickInstantiated);
-            instantiatedJoysticks = 0;*/

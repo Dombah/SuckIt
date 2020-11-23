@@ -43,7 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad611d83b388814eb2a7fa295ef1c4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trash: {fileID: 3512301271530946285, guid: 037f4b47f5ec0b0499dc0a8951c7e796, type: 3}
+  trashPrefab: {fileID: 3512301271530946285, guid: 037f4b47f5ec0b0499dc0a8951c7e796, type: 3}
   z_Spawn_Offset: 0
-  time_Until_Next_Spawn: 0.5
   spawn_Radius: 15
+  time_Until_Next_Spawn: 0.5
+  time_At_Spawner_Speed_Up: 10
+  time_Increment: 10
+  core: {fileID: 0}
+  countdownTimer: {fileID: 0}
